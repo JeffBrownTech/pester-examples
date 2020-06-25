@@ -5,12 +5,20 @@ Describe "Get-Something" {
         It "should return 'I got something!'" {
             Get-Something | Should -Be 'I got something!'
         }
+
+        It "should be a string" {
+            Get-Something | Should -BeOfType System.String
+        }
     }
 
     Context "when parameter ThingToGet is used" {
         It "should return 'I got ' follow by a string" {
             $thing = 'a dog'
             Get-Something -ThingToGet $thing | Should -Be "I got $thing!"
+        }
+
+        It "should be a string" {
+            Get-Something | Should -BeOfType System.String
         }
     }
 }
